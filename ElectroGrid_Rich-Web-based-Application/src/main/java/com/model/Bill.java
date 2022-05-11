@@ -187,17 +187,7 @@ public class Bill {
 				preparedStmt.setDouble(8,Double.parseDouble(total));
 				preparedStmt.setInt(9, Integer.parseInt(billId));
 				
-				//validation
-				int unit=Integer.parseInt(units);
-				double kCharge=Double.parseDouble(KWHCharge);
-				double fCharge=Double.parseDouble(fixedCharge);
-				double reb=Double.parseDouble(rebate);
-				double tot=Double.parseDouble(total);
-
-
-
-
-				
+								
 			
 				// execute the statement
 				preparedStmt.execute();
@@ -250,8 +240,7 @@ public class Bill {
 					con.close();
 			
 					String newBill = readBill();
-					output = "{\"status\":\"success\", \"data\": \"" +
-					newBill + "\"}";
+					output = "{\"status\":\"success\", \"data\": \"" + newBill + "\"}";
 				}
 				catch (Exception e)
 				{

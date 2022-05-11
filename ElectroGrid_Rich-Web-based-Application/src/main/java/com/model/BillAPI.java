@@ -52,8 +52,8 @@ public class BillAPI extends HttpServlet {
 	{
 		Map paras = getParasMap(request);
 		String output = billObj.updateBill(paras.get("hidItemIDSave").toString(),
-		 request.getParameter("customerID"),
 		paras.get("billCode").toString(),
+		paras.get("customerID").toString(),
 		paras.get("month").toString(),
 		paras.get("units").toString(),
 		paras.get("KWHCharge").toString(),
@@ -64,8 +64,11 @@ public class BillAPI extends HttpServlet {
 	}
 
 	
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		Map paras = getParasMap(request);
+		String output = billObj.deleteBill(paras.get("billId").toString());
+		response.getWriter().write(output);
 	}
 	
 	
