@@ -31,19 +31,19 @@ class="form-control form-control-sm">
 <input id="units" name="units" type="text"
 class="form-control form-control-sm">&nbsp;<input id="CalcKwh" name="CalcKwh" type="button" value="Calculate KWHCharge"
 class="btn btn-danger"></div>
-<br>KWH Charge:
+<br>KWH Charge(Rs:):
 <input id="KWHCharge" name="KWHCharge" type="text"
 class="form-control form-control-sm">
-<br>Fixed Charge:
+<br>Fixed Charge(Rs:):
 <input id="fixedCharge" name="fixedCharge" type="text"
 class="form-control form-control-sm">
-<br>Rebate:
+<br>Rebate(Rs:):
 <div id="calc">
 <input id="rebate" name="rebate" type="text"
 class="form-control form-control-sm">&nbsp;
 <input id="CalcTot" name="CalcTot" type="button" value="Calculate Total"
 class="btn btn-danger"></div>
-<br>Total:
+<br>Total(Rs:):
 <input id="total" name="total" type="text"
 class="form-control form-control-sm">
 <br>

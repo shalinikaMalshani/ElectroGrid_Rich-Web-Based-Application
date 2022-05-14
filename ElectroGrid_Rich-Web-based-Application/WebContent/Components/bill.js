@@ -14,10 +14,10 @@ $(document).on("click", "#CalcKwh", function(event)
 	console.log("calculate btn clicked");
 	var units=$("#units").val();
 	console.log("no of units",units);
-	if(units>300){
+	if(units<300){
 		$("#KWHCharge").val(units*10);
 	}else{
-		$("#KWHCharge").val(units*20);
+		$("#KWHCharge").val(units*12);
 	}
 	
 	
@@ -28,7 +28,7 @@ $(document).on("click", "#CalcTot",function(event){
 	var kwh=parseFloat($("#KWHCharge").val());
 	var fixed=parseFloat($("#fixedCharge").val());
 	var rebate=parseFloat($("#rebate").val());
-	$("#total").val(kwh+fixed+rebate);
+	$("#total").val(kwh+fixed-rebate);
 });
 
 
