@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Bill Management</title>
 <link rel="stylesheet" href="Views/bootstrap.min.css">
+<link rel="stylesheet" href="Views/bill.css">
 <script src="Components/jquery-3.6.0.min.js"></script>
 <script src="Components/bill.js"></script>
 </head>
@@ -24,11 +25,12 @@ class="form-control form-control-sm">
 <br>Month:
 <input id="month" name="month" type="text"
 class="form-control form-control-sm">
-<br>Units:
-<input id="units" name="units" type="text"
-class="form-control form-control-sm" style="display:inline"><input id="CalcKwh" name="CalcKwh" type="button" value="Calculate"
-class="btn btn-danger">
 
+<br>Units:
+<div id="calc">
+<input id="units" name="units" type="text"
+class="form-control form-control-sm">&nbsp;<input id="CalcKwh" name="CalcKwh" type="button" value="Calculate KWHCharge"
+class="btn btn-danger"></div>
 <br>KWH Charge:
 <input id="KWHCharge" name="KWHCharge" type="text"
 class="form-control form-control-sm">
@@ -36,10 +38,11 @@ class="form-control form-control-sm">
 <input id="fixedCharge" name="fixedCharge" type="text"
 class="form-control form-control-sm">
 <br>Rebate:
+<div id="calc">
 <input id="rebate" name="rebate" type="text"
-class="form-control form-control-sm"><br>
-<input id="CalcTot" name="CalcTot" type="button" value="Calculate"
-class="btn btn-danger">
+class="form-control form-control-sm">&nbsp;
+<input id="CalcTot" name="CalcTot" type="button" value="Calculate Total"
+class="btn btn-danger"></div>
 <br>Total:
 <input id="total" name="total" type="text"
 class="form-control form-control-sm">

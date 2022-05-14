@@ -194,8 +194,10 @@ $("#total").val($(this).closest("tr").find('td:eq(7)').text());
 
 $(document).on("click", ".btnRemove", function(event)
 {
+
 $.ajax(
 {
+	
 url : "BillAPI",
 type : "DELETE",
 data : "billId=" + $(this).data("itemid"),
@@ -229,6 +231,53 @@ $("#alertError").show();
 } else
 {
 $("#alertError").text("Unknown error while deleting..");
+$("#alertError").show();
+}
+}
+
+
+
+$(document).on("click", "#btnView", function(event)
+{
+		const value = $("#billCode").val();
+		console.log(value);
+$.ajax(
+{
+url : "BillAPI",
+type : "GET",
+data : "billCode=" +  $("#billCode").val(),
+dataType : "text",
+complete : function(response, status)
+{
+onItemViewComplete(response.responseText, status);
+}
+});
+});
+
+
+function onItemViewComplete(response, status)
+{
+if (status == "success")
+{
+var resultSet = JSON.parse(response);
+
+if (resultSet.status.trim() == "success")
+{
+$("#alertSuccess").text("Successfully get.");
+$("#alertSuccess").show();
+$("#divBillGrid").html(resultSet.data);
+} else if (resultSet.status.trim() == "error")
+{
+$("#alertError").text(resultSet.data);
+$("#alertError").show();
+}
+} else if (status == "error")
+{
+$("#alertError").text("Error while get.");
+$("#alertError").show();
+} else
+{
+$("#alertError").text("Unknown error while getting..");
 $("#alertError").show();
 }
 }

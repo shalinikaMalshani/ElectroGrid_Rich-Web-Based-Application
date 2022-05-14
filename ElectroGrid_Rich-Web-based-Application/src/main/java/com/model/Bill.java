@@ -3,6 +3,7 @@ package com.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.util.DBConnect;
@@ -61,6 +62,10 @@ public class Bill {
 					output = "{\"status\":\"success\", \"data\": \"" +
 					newBill + "\"}";
 					
+				}catch (SQLException e)
+				{
+					output = "{\"status\":\"error\", \"data\":\"Customer not found\"}";
+					System.err.println(e.getMessage());
 				}
 				//catch exception
 				catch (Exception e)
@@ -225,6 +230,7 @@ public class Bill {
 					return "Error while connecting to the database for deleting.";
 				
 				}
+					
 					// create a prepared statement
 					String query = "delete from bill where billId=?";
 			
@@ -292,20 +298,26 @@ public class Bill {
 						String total=Double.toString(rs.getDouble("total"));
 			
 						output +="<h4>"+ "View Bill " + " Bill Code-" +billCODE+ " BillId-" +billID + "</h4>";
-						output += "<p>"+"Customer:"+customerId+"</p>";
+						output += "<p>"+"Customer Id:"+customerId+"</p>";
 						output += "<p>"+"Month:"+month+"</p>";
-						output += "<p>"+"Units:"+units+"</p>";
+						output += "<p>"+"No of Units:"+units+"</p>";
 						output += "<p>"+"KWHCharge:"+KWHCharge+"</p>";
 						output += "<p>"+"Fixed Charge:"+fixedCharge+"</p>";
 						output += "<p>"+"Rebate:"+ rebate+"</p>";
 						output += "<p>"+"Total:"+total+"</p>";
+						
+						String data=output;
+						
+						output = "{\"status\":\"success\", \"data\": \"" + data + "\"}";
+						
+						
 			
 					}
 					con.close();
 					}
 					catch (Exception e)
 					{
-						output = "Error while getting the bill.";
+						output = "{\"status\":\"error\", \"data\": \"Error while get the bill.\"}";
 						System.err.println(e.getMessage());
 					}
 						return output;

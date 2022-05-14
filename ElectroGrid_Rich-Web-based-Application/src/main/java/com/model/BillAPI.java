@@ -1,6 +1,7 @@
 package com.model;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -28,11 +29,7 @@ public class BillAPI extends HttpServlet {
     }
 
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
+	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
@@ -45,6 +42,7 @@ public class BillAPI extends HttpServlet {
 				request.getParameter("rebate"),
 				request.getParameter("total"));
 				response.getWriter().write(output);
+	
 	}
 
 	
@@ -71,6 +69,15 @@ public class BillAPI extends HttpServlet {
 		response.getWriter().write(output);
 	}
 	
+	
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	Map paras = getParasMap(request);
+	String output = billObj.getBill(request.getParameter("billCode"));
+	response.getWriter().write(output);
+
+	}
+
 	
 		// Convert request parameters to a Map
 		private static Map getParasMap(HttpServletRequest request)
