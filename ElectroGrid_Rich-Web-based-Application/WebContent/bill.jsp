@@ -26,11 +26,11 @@ class="form-control form-control-sm">
 <br>Month:
 
 <select id="month" name="month" class="form-control form-control-sm">
-<option value="">---Select Month---</option>
-<option value="January">January</option>
-<option value="February">February</option>
-<option value="March">March</option>
-<option value="April">April</option>
+<option value="0">---Select Month---</option>
+<option value="1">January</option>
+<option value="2">February</option>
+<option value="3">March</option>
+<option value="4">April</option>
 </select>
 <br>Units:
 <div id="calc">

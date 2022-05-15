@@ -84,7 +84,7 @@ if ($("#customerID").val().trim() == "")
 return "Insert customer Id.";
 }
 //month
-if ($("#month").val().trim() == "")
+if ($("#month").val()== 0)
 {
 return "Insert month.";
 }
