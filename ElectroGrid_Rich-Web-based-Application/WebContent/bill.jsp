@@ -15,6 +15,7 @@
 <div class="container">
 <div class="row"><div class="col-6">
 <h1>Bill Management</h1>
+<h3>Insert Bill</h3>
 <form id="formItem" name="formItem">
 Bill code:
 <input id="billCode" name="billCode" type="text"
@@ -23,9 +24,14 @@ class="form-control form-control-sm">
 <input id="customerID" name="customerID" type="text"
 class="form-control form-control-sm">
 <br>Month:
-<input id="month" name="month" type="text"
-class="form-control form-control-sm">
 
+<select id="month" name="month" class="form-control form-control-sm">
+<option value="">---Select Month---</option>
+<option value="January">January</option>
+<option value="February">February</option>
+<option value="March">March</option>
+<option value="April">April</option>
+</select>
 <br>Units:
 <div id="calc">
 <input id="units" name="units" type="text"
@@ -57,10 +63,12 @@ name="hidItemIDSave" value="">
 <div id="alertError" class="alert alert-danger"></div>
 <br>
 <div id="divItemsGrid">
+<h3>All Bills</h3>
 <%
 Bill billObj=new Bill();
 out.print(billObj.readBill());
 %>
+<br>
 </div>
 </div> </div> </div>
 </body>

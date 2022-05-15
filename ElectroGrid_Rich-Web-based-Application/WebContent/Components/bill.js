@@ -263,7 +263,7 @@ var resultSet = JSON.parse(response);
 
 if (resultSet.status.trim() == "success")
 {
-$("#alertSuccess").text("Successfully get.");
+$("#alertSuccess").text("Successfully Get.");
 $("#alertSuccess").show();
 $("#divBillGrid").html(resultSet.data);
 } else if (resultSet.status.trim() == "error")

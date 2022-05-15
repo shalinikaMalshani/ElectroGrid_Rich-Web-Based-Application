@@ -297,14 +297,14 @@ public class Bill {
 						String rebate=Double.toString(rs.getDouble("rebate"));
 						String total=Double.toString(rs.getDouble("total"));
 			
-						output +="<h4>"+ "View Bill " + " Bill Code-" +billCODE+ " BillId-" +billID + "</h4><br>";
+						output +="<h4>"+ " Bill Code-" +billCODE+ " BillId-" +billID + "</h4><br>";
 						output += "<p>"+"<b>Customer Id</b> :"+ customerId+"</p>";
-						output += "<p>"+"Month :"+ month+"</p>";
-						output += "<p>"+"No of Units :"+ units+"</p>";
-						output += "<p>"+"KWHCharge :"+ KWHCharge+"</p>";
-						output += "<p>"+"Fixed Charge :"+ fixedCharge+"</p>";
-						output += "<p>"+"Rebate :"+ rebate+"</p>";
-						output += "<p>"+"Total :"+ total+"</p>";
+						output += "<p>"+"<b>Month</b> :"+ month+"</p>";
+						output += "<p>"+"<b>No of Units</b> :"+ units+"</p>";
+						output += "<p>"+"<b>KWHCharge(Rs:)</b> :"+ KWHCharge+"</p>";
+						output += "<p>"+"<b>Fixed Charge(Rs:)</b> :"+ fixedCharge+"</p>";
+						output += "<p>"+"<b>Rebate(Rs:)</b> :"+ rebate+"</p>";
+						output += "<p>"+"<b>Total(Rs:)</b> :"+ total+"</p>";
 						
 						String data=output;
 						
