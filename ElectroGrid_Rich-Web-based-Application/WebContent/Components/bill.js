@@ -9,6 +9,7 @@ $("#alertSuccess").hide();
 $("#alertError").hide();
 })
 
+//calculation for kwhcharge
 $(document).on("click", "#CalcKwh", function(event)
 {
 	console.log("calculate btn clicked");
@@ -24,6 +25,7 @@ $(document).on("click", "#CalcKwh", function(event)
 	
 });
 
+//calc tot
 $(document).on("click", "#CalcTot",function(event){
 	var kwh=parseFloat($("#KWHCharge").val());
 	var fixed=parseFloat($("#fixedCharge").val());
@@ -34,6 +36,7 @@ $(document).on("click", "#CalcTot",function(event){
 
 
 
+//when click save
 $(document).on("click", "#btnSave", function(event)
 {
 	console.log("save button clicked");
@@ -66,7 +69,7 @@ onItemSaveComplete(response.responseText, status);
 });
 });
 
-
+//validation
 function validateItemForm()
 {
 //billcode
@@ -150,6 +153,7 @@ $("#total").val(parseFloat(tmptot).toFixed(2));
 return true;
 }
 
+
 function onItemSaveComplete(response, status)
 {
 if (status == "success")
@@ -178,7 +182,7 @@ $("#hidItemIDSave").val("");
 $("#formItem")[0].reset();
 }
 
-
+//when click update
 $(document).on("click", ".btnUpdate", function(event)
 {
 $("#hidItemIDSave").val($(this).data("itemid"));
@@ -192,6 +196,7 @@ $("#rebate").val($(this).closest("tr").find('td:eq(6)').text());
 $("#total").val($(this).closest("tr").find('td:eq(7)').text());
 });
 
+//when click delete
 $(document).on("click", ".btnRemove", function(event)
 {
 
@@ -236,7 +241,7 @@ $("#alertError").show();
 }
 
 
-
+//when click view 
 $(document).on("click", "#btnView", function(event)
 {
 		const value = $("#billCode").val();
